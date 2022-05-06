@@ -1,0 +1,177 @@
+@import url(https://allfont.net/allfont.css?fonts=agency-fb);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+:root {
+  --gradient: linear-gradient(180deg, #292929 19.27%, #134681 100%);
+  --text: #f0ffff;
+  --boxBorder: #315781;
+  --boxShadow: #17559b;
+  --bgBox: #2e81e01a;
+  --boxText: #96bfee;
+  --boxTextShadow: #96bfee80;
+  --hoverQA:#1e6dc8;
+  --buttonBg: #353535;
+  --buttonBorderHover: #2e81e0;
+  --insetShadow: #5a95d859;
+  --insetShadowLight: #2e81e0e6;
+  --innerBallDark: #111f2c46;
+  --innerBallLight: #30597ea6;
+  --floorShadow: #0f0f0f;
+}
+
+
+body {
+  font-family: "Agency FB", arial;
+}
+
+.backGradient {
+  display: grid;
+  text-align: center;
+  background-image: var(--gradient);
+  height: 100vh;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+#title {
+  color: var(--text);
+  font-size: 4rem;
+  letter-spacing: 0.2em;
+}
+
+#letterCircle {
+  display: inline-flex;
+  border-radius: 50%;
+  width: 5.5rem;
+  height: 5.5rem;
+  background: transparent;
+  border: 3px solid var(--text);
+  color: var(--text);
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -1px;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+  padding: 2em;
+}
+
+#questionArea {
+  height: 6.375rem;
+  width: 25rem;
+  margin: auto;
+  border: 2px solid var(--boxBorder);
+  box-shadow: 0px 0px 25px 0.5px var(--boxShadow);
+  border-radius: 8px;
+  background-color: var(--bgBox);
+  margin-top: 2rem;
+  font-family: "Agency FB", arial;
+  text-align: center;
+  color:var(--boxText);
+  font-size: 1.5rem;
+  text-shadow: 0px 4px 15px var(--boxTextShadow);
+  cursor: pointer;
+}
+
+#questionArea:hover {
+  box-shadow: 0px 0px 35px 0.5px var(--hoverQA)
+}
+
+
+
+::placeholder {
+  color: var(--boxText);
+  font-size: 1.5rem;
+  text-shadow: 0px 4px 15px var(--boxTextShadow);
+}
+
+button {
+  height: 3.125rem;
+  width: 6.25rem;
+  border-radius: 35px;
+  margin: 0rem 3rem;
+  background-color: var(--buttonBg);
+  font-family: "Agency Fb", monospace;
+  border: 2px solid var(--buttonBorderHover);
+  color: var(--text);
+  font-size: 1.5rem;
+}
+
+button:hover {
+  background-color: var(--buttonBorderHover);
+  box-shadow: 0px 0px 25px 0.5px var(--boxShadow);
+  color: #292929;
+  cursor: pointer;
+}
+
+
+#eightBall {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25rem;
+  width: 25rem;
+  background-color: #292929;
+  border-radius: 100%;
+  box-shadow: inset 0px 20px 25px 5px var(--insetShadow), 0px -10px 35px 8px var(--insetShadowLight);
+}
+
+#innerBall {
+  position: absolute;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  height: 13rem;
+  width: 13rem;
+  background: radial-gradient(
+    96.45% 74.31% at 50% 25.69%,
+    var(--innerBallDark) 47.4%,
+    var(--innerBallLight) 100%
+  );
+  box-shadow: 0px 5px 8px 3px var(--buttonBorderHover), inset 0px 4px 8px #00000080;
+  border-radius: 100%;
+}
+
+#answer {
+  color: #96bfee;
+  text-shadow: 0px 0px 15px var(--buttonBorderHover);
+  font-size: 2rem;
+  padding: .70rem;  
+
+}
+
+#answerTwo {
+  position: relative;
+  z-index: 100;
+  color: #96bfee;
+  text-shadow: 0px 0px 15px var(--buttonBorderHover);
+  font-size: 1.4rem;
+  /* display: none; */
+  padding: .70rem;  
+}
+
+#shadow {
+  width: 280px;
+  height: 18px;
+  background: var(--floorShadow);
+  box-shadow: 0px 0px 5px var(--floorShadow);
+  filter: blur(18px);
+  border-radius: 50%;
+  margin-top: 2rem;
+}
+
+
