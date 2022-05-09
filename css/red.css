@@ -5,34 +5,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Agency FB", arial;
-  /* outline: solid 1px red; */
 
 }
 
 :root {
-  --gradient: linear-gradient(180deg, #292929 19.27%, #134681 100%);
-  --text: #f0ffff;
-  --boxBorder: #315781;
-  --boxShadow: #17559b;
-  --bgBox: #2e81e01a;
-  --boxText: #96bfee;
-  --boxTextShadow: #96bfee80;
-  --hoverQA: #1e6dc8;
-  --buttonBg: #353535;
-  --buttonBorderHover: #2e81e0;
-  --innerBallGlow: #2e81e0;
-  --insetShadow: #5a95d859;
-  --insetShadowLight: #2e81e0e6;
-  --bgRadial: radial-gradient(
-    96.45% 74.31% at 50% 25.69%,
-    #111f2c46 47.4%,
-    #30597ea6 100%
-  );
-  --floorShadow: #0f0f0f;
-}
-
-
-.redTheme {
   --gradient: linear-gradient(180deg, #292929 19.27%, #811313 100%);
   --text: #f0ffff;
   --boxBorder: #813131;
@@ -56,13 +32,10 @@
 
 
 .backGradient {
-  height: 100vh;
-  width: 100vw;
-  display: grid;
-  place-content: center;
+  display: flex;
   text-align: center;
   background-image: var(--gradient);
-  /* overflow:hidden ; */
+  height: 100vh;
 }
 
 #content {
@@ -97,7 +70,7 @@
   padding: 2em;
 }
 
-#questionArea, #questionAreaTwo {
+#questionArea {
   height: 6.375rem;
   width: 25rem;
   margin: auto;
@@ -115,9 +88,7 @@
 }
 
 #questionArea:hover {
-  box-shadow: 0px 0px 45px 0.5px var(--hoverQA);
-  transition: .7s;
-  
+  box-shadow: 0px 0px 35px 0.5px var(--hoverQA);
 }
 
 ::placeholder {
@@ -125,8 +96,6 @@
   font-size: 1.5rem;
   text-shadow: 0px 4px 15px var(--boxTextShadow);
 }
-
-
 
 button {
   height: 3.125rem;
@@ -145,31 +114,9 @@ button:hover {
   box-shadow: 0px 0px 25px 0.5px var(--boxShadow);
   color: #292929;
   cursor: pointer;
-  transition: .4s;
-}
-
-@keyframes float {
-	0% {
-    box-shadow: inset 0px 20px 25px 5px var(--insetShadow),
-    0px -10px 35px 2px var(--insetShadowLight);
-		transform: translatey(0px);
-	}
-	50% {
-    box-shadow: inset 0px 20px 25px 10px var(--insetShadow),
-    0px -10px 35px 15px var(--insetShadowLight);
-
-		transform: translatey(-15px);
-	}
-	100% {
-    box-shadow: inset 0px 20px 25px 5px var(--insetShadow),
-    0px -10px 35px 2px var(--insetShadowLight);
-		transform: translatey(0px);
-	}
 }
 
 #eightBall {
-  position: relative;
-  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -177,16 +124,15 @@ button:hover {
   width: 25rem;
   background-color: #292929;
   border-radius: 100%;
-  animation: float 6s ease-in-out infinite;
-
+  box-shadow: inset 0px 20px 25px 5px var(--insetShadow),
+    0px -10px 35px 8px var(--insetShadowLight);
 }
 
 #innerBall {
   position: absolute;
   display: grid;
-  /* align-items: center;
-  justify-content: center; */
-  place-content: center;
+  align-items: center;
+  justify-content: center;
   height: 13rem;
   width: 13rem;
   background: var(--bgRadial);
@@ -194,51 +140,24 @@ button:hover {
   border-radius: 100%;
 }
 
-#innerBallTwo {
-  display: grid;
-  place-items: center;
-  text-align: center;
-  height: 13rem;
-  width: 13rem;
-  padding-top: 2.8em;
-}
-  
 #answer {
   color: var(--boxText);
   text-shadow: 0px 0px 15px var(--buttonBorderHover);
-  font-size: 2rem;
-  padding: 0.7rem;
+  font-size: 1.3rem;
+  padding: 0.9em;
 }
 
 #answerTwo {
   position: relative;
   z-index: 100;
-  color:var(--boxText);
+  color: #96bfee;
   text-shadow: 0px 0px 15px var(--buttonBorderHover);
   font-size: 1.4rem;
-  padding: 0.7em;
-  line-height: 1.5rem;
-
-}
-
-@keyframes shrink {
-  0% {
-    width: 60%;
-    margin: 0 5%;
-  }
-  50% {
-    width: 30%;
-    margin: 0 18%;
-  }
-  100% {
-    width: 60%;
-    margin: 0 5%;
-  }
+  display: none;
+  padding: 0.7rem;
 }
 
 #shadow {
-  position: relative;
-  z-index: 1;
   width: 280px;
   height: 18px;
   background: var(--floorShadow);
@@ -246,5 +165,4 @@ button:hover {
   filter: blur(18px);
   border-radius: 50%;
   margin-top: 2rem;
-  animation: shrink 6s ease-out infinite;
 }
