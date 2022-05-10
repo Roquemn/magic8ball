@@ -39,11 +39,16 @@ function mode(action) {
     document.getElementById("questionAreaTwo").style.display = "none";
     //user input display end
   }
-}
+};
+
+//Disable and Enables Buttons end
+
+
+
 
 //Theme Picker
 
-let redTheme = document.getElementsByClassName("redTheme");
+const redTheme = document.getElementsByClassName("redTheme");
 const color = document.getElementById("colorSwitch");
 const danger = document.getElementById("ask");
 const reset = document.getElementById("reset");
@@ -56,13 +61,14 @@ const disableRedTheme = () => {
   document.body.classList.remove("redTheme");
 };
 
-danger.addEventListener("click", () => {
+danger.addEventListener("dblclick", () => {
   if (redTheme !== "enabled") {
     enableRedTheme();
     // console.log(redTheme)
   } else {
     disableRedTheme();
   }
+  
 });
 
 reset.addEventListener("click", () => {
@@ -71,7 +77,6 @@ reset.addEventListener("click", () => {
   }
 });
 
-let theme = localStorage.getItem("colorIndex");
 
 const gradientColors = ["#134681", "#4A1382", "#138239", "#9E8817"];
 const boxBorder = ["#315781", "#9A4DE7", "#138239", "#e0c52ee8"];
@@ -137,6 +142,20 @@ color.addEventListener("click", () => {
         ${bgRadial[colorIndex]} 100%
       )`
   );
+  
+let userThemes = [gradientColors,boxBorder,boxShadow,boxText,boxTextShadow,bgBox,buttonColors,ballShadow,questionHover,insetInnerShadow,innerBallGlow,bgRadial];
+
+console.log([gradientColors,boxBorder,boxShadow,boxText,boxTextShadow,bgBox,buttonColors,ballShadow,questionHover,insetInnerShadow,innerBallGlow,bgRadial]);
+
+
+
+  localStorage.setItem('theme', colorIndex);
+  function theme () {
+    if (localStorage.setItem("colorIndex")==="true") {
+      
+    } else (localStorage).getItem("colorIndex")==="false" 
+  }
+
 });
 
 //Answer Generator
@@ -147,11 +166,14 @@ function generate_random(max_number) {
 
 //click event
 
-let clicker = document.querySelector("#ask");
+let ask = document.querySelector("#ask");
 let answer = document.querySelector("#answer");
+// var myRandom = function (action) {};
 
-clicker.addEventListener("click", function () {
-  let randomNumber = generate_random(8);
+// console.log(myRandom);
+
+ask.addEventListener("click", function () {
+  let randomNumber = generate_random(9);
 
   let answerText = "";
 
@@ -171,7 +193,10 @@ clicker.addEventListener("click", function () {
     answerText = "Most definitely";
   } else if (randomNumber === 7) {
     answerText = "Not really";
+  } else if (randomNumber === 8) {
+    answerText = "Hahahaha";
   } else {
+    
     answerText = "uh huh";
   }
 

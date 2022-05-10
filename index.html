@@ -15,7 +15,7 @@
     <div class="backGradient">
       <div id="content">
         <h1 id="title">MAGIC <span id="letterCircle">8</span> BALL</h1>
-        <input type="text"
+        <input onkeypress="mode('redTheme')"; type="text"
           id="questionArea"
           placeholder="Ask me anything?"
         ></input><input type="text"
@@ -23,7 +23,7 @@
         placeholder="Umm, Hi..."
       ></input>
         <div id="buttons">
-          <button id="ask" onclick="mode('ask');">Ask!</button>
+          <button id="ask" ondblclick="mode('ask');">Ask!</button>
           <button id="reset" style="display:none;" onclick="mode('reset');">Reset</button>
           <button id="colorSwitch">Color</button>
         </div>
