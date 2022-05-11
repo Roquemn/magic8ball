@@ -116,10 +116,16 @@
   cursor: pointer;
 }
 
-#questionArea,#questionAreaTwo:hover {
+#questionArea:hover {
   box-shadow: 0px 0px 45px 0.5px var(--hoverQA);
   transition: .7s;
-  
+}
+
+#questionAreaTwo:hover {
+  box-shadow: 0px 0px 45px 0.5px var(--hoverQA);
+  transition: .7s;
+
+
 }
 
 ::placeholder {
@@ -149,7 +155,7 @@ button:hover {
   box-shadow: 0px 0px 25px 0.5px var(--boxShadow);
   color: #292929;
   cursor: pointer;
-  transition: .4s;
+  transition: .5s;
 }
 
 @keyframes float {
@@ -205,6 +211,7 @@ button:hover {
   height: 13rem;
   width: 13rem;
   padding-top: 2.8em;
+
 }
   
 #answer {
