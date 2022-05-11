@@ -1,7 +1,7 @@
-//Issues to fix or modified
-//1.randomize redTheme Event
-    //a.place it inside the answer randomize event
-    
+//Issues to fix or modified//
+
+//1.randomize redTheme Event 
+    //a.place it inside the answer randomize event    
 //2.localStorage User Theme
 //3.Alert user to ask actual question
 //3.Transition smoothly from different Themes
@@ -114,12 +114,29 @@ const bgRadial = ["#30597ea6", "#6c307ea6", "#307e30a6", "#7a7e30a6", "#7e6530a6
 //Theme Switching Event/Function
 
 let colorIndex = 0;
-
+if (localStorage.getItem("theme")){
+  colorIndex = localStorage.getItem("theme")
+  changeTheme(colorIndex)
+}
 color.addEventListener("click", () => {
   colorIndex++;
   if (colorIndex === gradientColors.length) {
     colorIndex = 0;
   }
+  
+  changeTheme(colorIndex);
+  
+// let userThemes = [gradientColors,boxBorder,boxShadow,boxText,boxTextShadow,bgBox,buttonColors,ballShadow,questionHover,insetInnerShadow,innerBallGlow,bgRadial];
+
+// console.log([gradientColors,boxBorder,boxShadow,boxText,boxTextShadow,bgBox,buttonColors,ballShadow,questionHover,insetInnerShadow,innerBallGlow,bgRadial]);
+
+
+localStorage.setItem('theme', colorIndex);
+console.log(colorIndex);
+
+
+});
+function changeTheme(colorIndex){
   document
     .querySelector(":root")
     .style.setProperty(
@@ -164,17 +181,7 @@ color.addEventListener("click", () => {
         ${bgRadial[colorIndex]} 100%
       )`
   );
-  
-let userThemes = [gradientColors,boxBorder,boxShadow,boxText,boxTextShadow,bgBox,buttonColors,ballShadow,questionHover,insetInnerShadow,innerBallGlow,bgRadial];
-
-console.log([gradientColors,boxBorder,boxShadow,boxText,boxTextShadow,bgBox,buttonColors,ballShadow,questionHover,insetInnerShadow,innerBallGlow,bgRadial]);
-
-
-localStorage.setItem('theme', colorIndex);
-
-
-
-});
+}
 
 //Theme Switching Event/Function end
 
@@ -193,6 +200,8 @@ function generate_random(max_number) {
 
 let ask = document.querySelector("#ask");
 let answer = document.querySelector("#answer");
+let input = document.querySelector("#questionArea")
+
 // var myRandom = function (action) {};
 
 // console.log(myRandom);
@@ -201,7 +210,10 @@ ask.addEventListener("click", function () {
   let randomNumber = generate_random(16);
 
   let answerText = "";
-
+  if (!input.value.includes("?")){
+    return alert("question please");
+  }
+  
   if (randomNumber === 0) {
     answerText = "Most Likely";
   } else if (randomNumber === 1) {
@@ -234,7 +246,8 @@ ask.addEventListener("click", function () {
     answerText = "I'm out";
 
   } else {
-    
+    mode("ask")
+    enableRedTheme()
     answerText = "uh huh";
   }
 
