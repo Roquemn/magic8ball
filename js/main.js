@@ -124,12 +124,13 @@ let colorIndex = 0;
 if (localStorage.getItem("theme")){
   colorIndex = localStorage.getItem("theme")
   changeTheme(colorIndex)
-}
+};
+
 color.addEventListener("click", () => {
   colorIndex++;
   if (colorIndex === gradientColors.length) {
     colorIndex = 0;
-  }
+  };
   
   changeTheme(colorIndex);
   
@@ -192,13 +193,15 @@ input.addEventListener('keydown', (event) => {
 
 
 
-ask.addEventListener("click", function () {
+
+
+ask.addEventListener("click",  () => {
 
   let randomNumber = generate_random(16);
 
   let answerText = "";
   if (!input.value.includes("?")){
-    return alert("Oops, please provided a question");
+    return alert("Oops, please provide a question");
   }
 
   if (randomNumber === 0) {

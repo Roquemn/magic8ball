@@ -8,6 +8,7 @@
   /* outline: solid 1px red; */
 }
 
+
 :root {
   --gradient: linear-gradient(180deg, #292929 19.27%, #134681 100%);
   --text: #f0ffff;
@@ -22,11 +23,9 @@
   --innerBallGlow: #2e81e0;
   --insetShadow: #5a95d859;
   --insetShadowLight: #2e81e0e6;
-  --bgRadial: radial-gradient(
-    96.45% 74.31% at 50% 25.69%,
-    #111f2c46 47.4%,
-    #30597ea6 100%
-  );
+  --bgRadial: radial-gradient(96.45% 74.31% at 50% 25.69%,
+      #111f2c46 47.4%,
+      #30597ea6 100%);
   --floorShadow: #0f0f0f;
 }
 
@@ -45,11 +44,9 @@
   --innerBallGlow: #e02e2e;
   --insetShadow: #d85a5a59;
   --insetShadowLight: #e02e2ee6;
-  --bgRadial: radial-gradient(
-    96.45% 74.31% at 50% 25.69%,
-    #111f2c46 47.4%,
-    #7e3030a6 100%
-  );
+  --bgRadial: radial-gradient(96.45% 74.31% at 50% 25.69%,
+      #111f2c46 47.4%,
+      #7e3030a6 100%);
   --floorShadow: #0f0f0f;
 }
 
@@ -71,24 +68,27 @@
   margin: auto;
 }
 
+
 #title {
   color: var(--text);
   font-size: 4rem;
   letter-spacing: 0.2em;
 }
 
+
 #letterCircle {
-  display: inline-flex;
-  border-radius: 50%;
-  width: 5.5rem;
   height: 5.5rem;
-  background: transparent;
-  border: 3px solid var(--text);
-  color: var(--text);
-  align-items: center;
+  width: 5.5rem;
+  display: inline-flex;
   justify-content: center;
+  align-items: center;
+  border: 3px solid var(--text);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text);
   letter-spacing: -1px;
 }
+
 
 #buttons {
   display: flex;
@@ -96,15 +96,17 @@
   padding: 2em;
 }
 
-#questionArea, #questionAreaTwo {
+
+#questionArea,
+#questionAreaTwo {
   height: 6.375rem;
   width: 25rem;
   margin: auto;
-  border: 2px solid var(--boxBorder);
-  box-shadow: 0px 0px 25px 0.5px var(--boxShadow);
-  border-radius: 8px;
-  background-color: var(--bgBox);
   margin-top: 2rem;
+  border: 2px solid var(--boxBorder);
+  border-radius: 8px;
+  box-shadow: 0px 0px 25px 0.5px var(--boxShadow);
+  background-color: var(--bgBox);
   font-family: "Agency FB", arial;
   text-align: center;
   color: var(--boxText);
@@ -113,10 +115,12 @@
   cursor: pointer;
 }
 
+
 #questionArea:hover {
   box-shadow: 0px 0px 45px 0.5px var(--hoverQA);
   transition: .7s;
 }
+
 
 #questionAreaTwo:hover {
   box-shadow: 0px 0px 45px 0.5px var(--hoverQA);
@@ -125,6 +129,7 @@
 
 }
 
+
 ::placeholder {
   color: var(--boxText);
   font-size: 1.5rem;
@@ -132,15 +137,14 @@
 }
 
 
-
 button {
   height: 3.125rem;
   width: 6.25rem;
+  border: 2px solid var(--buttonBorderHover);
   border-radius: 35px;
   margin: 0rem 3rem;
   background-color: var(--buttonBg);
   font-family: "Agency Fb", monospace;
-  border: 2px solid var(--buttonBorderHover);
   color: var(--text);
   font-size: 1.5rem;
   position: relative;
@@ -156,26 +160,6 @@ button:hover {
 }
 
 
-
-@keyframes float {
-	0% {
-    box-shadow: inset 0px 20px 25px 5px var(--insetShadow),
-    0px -10px 35px 1px var(--insetShadowLight);
-		transform: translatey(0px);
-	}
-	50% {
-    box-shadow: inset 0px 20px 25px 12px var(--insetShadow),
-    0px -10px 35px 20px var(--insetShadowLight);
-
-		transform: translatey(-15px);
-	}
-	100% {
-    box-shadow: inset 0px 20px 25px 5px var(--insetShadow),
-    0px -10px 35px 1px var(--insetShadowLight);
-		transform: translatey(0px);
-	}
-}
-
 #eightBall {
   position: relative;
   z-index: 2;
@@ -187,14 +171,12 @@ button:hover {
   background-color: #292929;
   border-radius: 100%;
   animation: float 6s ease-in-out infinite;
-
 }
+
 
 #innerBall {
   position: absolute;
   display: grid;
-  /* align-items: center;
-  justify-content: center; */
   place-content: center;
   height: 13rem;
   width: 13rem;
@@ -202,6 +184,29 @@ button:hover {
   box-shadow: 0px 5px 8px 3px var(--innerBallGlow), inset 0px 4px 8px #00000080;
   border-radius: 100%;
 }
+
+
+@keyframes float {
+  0% {
+    box-shadow: inset 0px 20px 25px 5px var(--insetShadow),
+      0px -10px 35px 1px var(--insetShadowLight);
+    transform: translatey(0px);
+  }
+
+  50% {
+    box-shadow: inset 0px 20px 25px 12px var(--insetShadow),
+      0px -10px 35px 20px var(--insetShadowLight);
+
+    transform: translatey(-15px);
+  }
+
+  100% {
+    box-shadow: inset 0px 20px 25px 5px var(--insetShadow),
+      0px -10px 35px 1px var(--insetShadowLight);
+    transform: translatey(0px);
+  }
+}
+
 
 #innerBallTwo {
   display: grid;
@@ -212,7 +217,8 @@ button:hover {
   padding-top: 2.8em;
 
 }
-  
+
+
 #answer {
   color: var(--boxText);
   text-shadow: 0px 0px 15px var(--buttonBorderHover);
@@ -222,7 +228,6 @@ button:hover {
 }
 
 
-
 @keyframes answerAppear {
   0% {
     color: transparent;
@@ -230,7 +235,7 @@ button:hover {
     font-size: .5rem;
     padding: 0.7rem;
     margin-top: 10rem;
-  
+
   }
 
   100% {
@@ -243,10 +248,11 @@ button:hover {
   }
 }
 
+
 #answerTwo {
   position: relative;
   z-index: 100;
-  color:var(--boxText);
+  color: var(--boxText);
   text-shadow: 0px 0px 15px var(--buttonBorderHover);
   font-size: 1.4rem;
   padding: 0.7em;
@@ -254,20 +260,6 @@ button:hover {
 
 }
 
-@keyframes shrink {
-  0% {
-    width: 60%;
-    margin: 0 5%;
-  }
-  50% {
-    width: 30%;
-    margin: 0 18%;
-  }
-  100% {
-    width: 60%;
-    margin: 0 5%;
-  }
-}
 
 #shadow {
   position: relative;
@@ -280,4 +272,22 @@ button:hover {
   border-radius: 50%;
   margin-top: 2rem;
   animation: shrink 6s ease-out infinite;
+}
+
+
+@keyframes shrink {
+  0% {
+    width: 60%;
+    margin: 0 5%;
+  }
+
+  50% {
+    width: 30%;
+    margin: 0 18%;
+  }
+
+  100% {
+    width: 60%;
+    margin: 0 5%;
+  }
 }
