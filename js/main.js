@@ -1,64 +1,70 @@
-//Issues to fix or modified//
 
-//1.randomize redTheme Event 
-    //a.place it inside the answer randomize event    
-//2.localStorage User Theme
-//3.Alert user to ask actual question
+
+
+//Issues to fix or modify//
+
+//1.Randomize redTheme Event (*)
+    //a.place it inside the answer randomize event  (*)  
+//2.localStorage User Theme (*)
+//3.Alert user to ask actual question (*)
 //3.Transition smoothly from different Themes
 //4.Transition answers once event triggers
+//5.Change input key in Question Area from button(click) to Enter Key
 
 
 
 
-//Disables and Enables Buttons
+
+// === Disables and Enables Buttons === //
 
 function mode(action) {
   console.log(action);
   if (action === "ask") {
-    //controls button display
+    // === controls button display === //
     document.getElementById("ask").style.display = "none";
     document.getElementById("colorSwitch").style.display = "none";
     document.getElementById("reset").style.display = "block";
-    //controls button display end
+    // === controls button display end === //
 
-    //8ball display
+    // === 8ball display === //
     document.getElementById("answer").style.display = "none";
     document.getElementById("answerTwo").style.display = "block";
     document.getElementById("innerBallTwo").style.display = "block";
-    //8ball display end
+    // === 8ball display end === //
 
-    //input display
+    //input display === //
     document.getElementById("questionArea").style.display = "none";
     document.getElementById("questionAreaTwo").style.display = "block";
-    //input display end
+    // === input display end === //
   }
 
   if (action === "reset") {
-    //controls button display
+    // === controls button display === //
     document.getElementById("reset").style.display = "none";
     document.getElementById("ask").style.display = "block";
     document.getElementById("colorSwitch").style.display = "block";
-    //controls button display end
+    // === controls button display end === //
 
-    //8ball display
+    // === 8ball display === //
     document.getElementById("answer").style.display = "block";
     document.getElementById("answerTwo").style.display = "none";
     document.getElementById("innerBallTwo").style.display = "none";
-    //8ball display end
+    // === 8ball display end === //
 
-    //User input display
+    // === User input display === //
     document.getElementById("questionArea").style.display = "block";
     document.getElementById("questionAreaTwo").style.display = "none";
-    //user input display end
+    // === User input display end === //
   }
+
 };
 
-//Disable and Enables Buttons end
+// === Disable and Enables Buttons end === //
 
 
 
+// === Trigger Red Theme Switch at double click === //
 
-//Theme Picker
 
 const redTheme = document.getElementsByClassName("redTheme");
 const danger = document.getElementById("ask");
@@ -89,11 +95,11 @@ reset.addEventListener("click", () => {
   }
 });
 
-//Theme Picker end
+// === Theme Picker end === //
 
 
 
-//Themes [Default,Purple, Green, Yellow]
+// === Themes [Default,Purple, Green, Yellow, Orange] === //
 
 const gradientColors = ["#134681", "#4A1382", "#138239", "#9E8817","#bb8027"];
 const boxBorder = ["#315781", "#9A4DE7", "#138239", "#e0c52ee8", "#cca03a"];
@@ -108,10 +114,11 @@ const insetInnerShadow = ["#5a95d859", "#a85ad859", "#5ad85a59", "#d6d85a59", "#
 const innerBallGlow = ["#2e81e0", "#9A4DE7", "#2ee051", "#e0c52ee8", "#e09f2e"];
 const bgRadial = ["#30597ea6", "#6c307ea6", "#307e30a6", "#7a7e30a6", "#7e6530a6"];
 
-//Themes [Default,Purple, Green, Yellow]
+// === Themes [Default,Purple, Green, Yellow,Orange] === //
 
 
-//Theme Switching Event/Function
+
+// === Set User's theme in local storage === //
 
 let colorIndex = 0;
 if (localStorage.getItem("theme")){
@@ -126,94 +133,74 @@ color.addEventListener("click", () => {
   
   changeTheme(colorIndex);
   
-// let userThemes = [gradientColors,boxBorder,boxShadow,boxText,boxTextShadow,bgBox,buttonColors,ballShadow,questionHover,insetInnerShadow,innerBallGlow,bgRadial];
-
-// console.log([gradientColors,boxBorder,boxShadow,boxText,boxTextShadow,bgBox,buttonColors,ballShadow,questionHover,insetInnerShadow,innerBallGlow,bgRadial]);
-
 
 localStorage.setItem('theme', colorIndex);
 console.log(colorIndex);
-
-
 });
+
+// === Set User's theme in local storage end === //
+
+
+
+
+// === Theme Switching Event/Function === //
+
 function changeTheme(colorIndex){
-  document
-    .querySelector(":root")
-    .style.setProperty(
-      "--gradient",
-      `linear-gradient(180deg, #292929 19.27%, ${gradientColors[colorIndex]} 100%)`
-    );
-  document
-    .querySelector(":root")
-    .style.setProperty("--boxBorder", `${boxBorder[colorIndex]}`);
-  document
-    .querySelector(":root")
-    .style.setProperty("--boxShadow", `${boxShadow[colorIndex]}`);
-  document
-    .querySelector(":root")
-    .style.setProperty("--boxText", `${boxText[colorIndex]}`);
-  document
-    .querySelector(":root")
-    .style.setProperty("--boxTextShadow", `${boxTextShadow[colorIndex]}`);
-  document
-    .querySelector(":root")
-    .style.setProperty("--bgBox", `${bgBox[colorIndex]}`);
-  document
-    .querySelector(":root")
-    .style.setProperty("--buttonBorderHover", `${hoverQA[colorIndex]}`);
-  document
-    .querySelector(":root")
-    .style.setProperty("--insetShadowLight", `${insetShadowLight[colorIndex]}`);
-  document
-    .querySelector(":root")
-    .style.setProperty("--hoverQA", `${questionHover[colorIndex]}`);
-  document
-    .querySelector(":root")
-    .style.setProperty("--insetShadow", `${insetInnerShadow[colorIndex]}`);
-  document
-    .querySelector(":root")
-    .style.setProperty("--innerBallGlow", `${innerBallGlow[colorIndex]}`);
-  document.querySelector(":root").style.setProperty(
-    "--bgRadial",
-    `radial-gradient(
-        96.45% 74.31% at 50% 25.69%,
-        #111f2c46 47.4%,
-        ${bgRadial[colorIndex]} 100%
-      )`
-  );
-}
+  document.querySelector(":root").style.setProperty("--gradient",`linear-gradient(180deg, #292929 19.27%, ${gradientColors[colorIndex]} 100%)`);
+  document.querySelector(":root").style.setProperty("--boxBorder", `${boxBorder[colorIndex]}`);
+  document.querySelector(":root").style.setProperty("--boxShadow", `${boxShadow[colorIndex]}`);
+  document.querySelector(":root").style.setProperty("--boxText", `${boxText[colorIndex]}`);
+  document.querySelector(":root").style.setProperty("--boxTextShadow", `${boxTextShadow[colorIndex]}`);
+  document.querySelector(":root").style.setProperty("--bgBox", `${bgBox[colorIndex]}`);
+  document.querySelector(":root").style.setProperty("--buttonBorderHover", `${hoverQA[colorIndex]}`);
+  document.querySelector(":root").style.setProperty("--insetShadowLight", `${insetShadowLight[colorIndex]}`);
+  document.querySelector(":root").style.setProperty("--hoverQA", `${questionHover[colorIndex]}`);
+  document.querySelector(":root").style.setProperty("--insetShadow", `${insetInnerShadow[colorIndex]}`);
+  document.querySelector(":root").style.setProperty("--innerBallGlow", `${innerBallGlow[colorIndex]}`);
+  document.querySelector(":root").style.setProperty("--bgRadial",`radial-gradient(96.45% 74.31% at 50% 25.69%,#111f2c46 47.4%,${bgRadial[colorIndex]} 100%)`);
 
-//Theme Switching Event/Function end
+ 
+};
+
+// === Theme Switching Event/Function end === //
 
 
 
-
-//Answer Generator
+// === Answer Generator === //
 
 function generate_random(max_number) {
   return Math.round(Math.random() * max_number);
-}
+};
+
+// === Answer Generator end === //
 
 
 
-//click Event Answers
+
+// === click Event Answers === //
 
 let ask = document.querySelector("#ask");
 let answer = document.querySelector("#answer");
 let input = document.querySelector("#questionArea")
 
-// var myRandom = function (action) {};
+input.addEventListener('keydown', (event) => {
+  console.log(event.keyCode, event.code);
+  if (event.code !== 'Enter') {
+    return
+  }
+});
 
-// console.log(myRandom);
+
 
 ask.addEventListener("click", function () {
+
   let randomNumber = generate_random(16);
 
   let answerText = "";
   if (!input.value.includes("?")){
-    return alert("question please");
+    return alert("Oops, please provided a question");
   }
-  
+
   if (randomNumber === 0) {
     answerText = "Most Likely";
   } else if (randomNumber === 1) {
@@ -256,5 +243,5 @@ ask.addEventListener("click", function () {
   console.log(answer);
 });
 
-//click Event Answers end
+// === click Event Answers end === //
 
