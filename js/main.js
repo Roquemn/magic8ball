@@ -8,7 +8,7 @@
 //2.localStorage User Theme (*)
 //3.Alert user to ask actual question (*)
 //3.Transition smoothly from different Themes
-//4.Transition answers once event triggers
+//4.Transition answers once event triggers (*)
 //5.Change input key in Question Area from button(click) to Enter Key
 
 
@@ -137,6 +137,8 @@ color.addEventListener("click", () => {
 
 localStorage.setItem('theme', colorIndex);
 console.log(colorIndex);
+
+
 });
 
 // === Set User's theme in local storage end === //
@@ -242,6 +244,16 @@ ask.addEventListener("click",  () => {
   }
 
   answer.innerHTML = answerText;
+
+  //  === fade effect animation for answers ===  //
+  //  === Thank you Caroline for your contribution === //
+
+  answer.classList.add("fade-in");
+        setTimeout(() => {
+            answer.classList.remove("fade-in");
+            answer.value = "";
+
+        } , 3000); 
 
   console.log(answer);
 });
